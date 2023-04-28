@@ -12,7 +12,7 @@ import { gameModule } from 'src/game/game.module';
 	imports: [
 		MongooseModule.forRoot(
 			`mongodb://${
-				process.env.NODE === 'production' ? 'mongo:27012' : '127.0.0.1:27017'
+				process.env.NODE === 'production' ? 'mongo:27017' : '127.0.0.1:27017'
 			}/monodrippy`,
 		),
 		boardModule,
