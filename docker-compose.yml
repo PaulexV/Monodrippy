@@ -25,7 +25,3 @@ services:
     volumes:
       - ./db/monodrippy/restore.sh:/docker-entrypoint-initdb.d/restore.sh
       - ./db:/db
-    # healthcheck:
-    #   test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
-  
-    

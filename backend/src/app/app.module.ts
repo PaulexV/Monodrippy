@@ -10,7 +10,11 @@ import { gameModule } from 'src/game/game.module';
 
 @Module({
 	imports: [
-		MongooseModule.forRoot(`mongodb://mongo:27017/monodrippy`),
+		MongooseModule.forRoot(
+			`mongodb://${
+				process.env.NODE === 'production' ? 'mongo:27012' : '127.0.0.1:27017'
+			}/monodrippy`,
+		),
 		boardModule,
 		playerModule,
 		luckModule,
