@@ -5,8 +5,9 @@ services:
     build:
       context: ./frontend
       dockerfile: frontend.dockerfile
+      target: nginx
     ports:
-      - "8080:8080"
+      - "1234:80"
 
   backend:
     build:
@@ -19,9 +20,10 @@ services:
 
 
   mongo:
-    image: mongo:latest
+    build:
+      context: ./db/monodrippy
+      dockerfile: db.dockerfile
     ports:
       - "27017:27017"
     volumes:
-      - ./db/monodrippy/restore.sh:/docker-entrypoint-initdb.d/restore.sh
       - ./db:/db
