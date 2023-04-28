@@ -9,15 +9,15 @@ import { AppService } from './app.service';
 import { gameModule } from 'src/game/game.module';
 
 @Module({
-  imports: [
-    MongooseModule.forRoot(`mongodb://${process.env.NODE_ENV === "production" ? "db" : "127.0.0.1"}/monodrippy`),
-    boardModule,
-    playerModule,
-    luckModule,
-    tilesModule,
-    gameModule
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [
+		MongooseModule.forRoot(`mongodb://mongo:27017/monodrippy`),
+		boardModule,
+		playerModule,
+		luckModule,
+		tilesModule,
+		gameModule,
+	],
+	controllers: [AppController],
+	providers: [AppService],
 })
 export class AppModule {}
